@@ -12,7 +12,7 @@
 
 ```sh
 npm install -g @angular/cli@latest
-nmp install
+npm install
 ```
 
 ## Usage
