@@ -1,0 +1,184 @@
+<h5>Create New User</h5>
+
+<div class="card">
+  <div class="stepper">
+    <div class="step" [class.active]="currentStep == 1" [class.completed]="currentStep > 1">
+      <div class="step-counter">
+        <i class="bi-person"></i>
+      </div>
+      <div class="step-name">
+        Personal Information
+      </div>
+    </div>
+    <div class="step" [class.active]="currentStep == 2" [class.completed]="currentStep > 2">
+      <div class="step-counter">
+        <i class="bi-building"></i>
+      </div>
+      <div class="step-name">
+        Choice of Education
+      </div>
+    </div>
+    <div class="step" [class.active]="currentStep == 3" [class.completed]="currentStep > 3">
+      <div class="step-counter">
+        <i class="bi-hand-thumbs-up"></i>
+      </div>
+      <div class="step-name">
+        Preview
+      </div>
+    </div>
+  </div>
+
+  <div class="step-current-counter">{{currentStep}} of 3</div>
+  <div class="step-tab" *ngIf="currentStep == 1">
+    <form [formGroup]="formPersonal">      
+      <div class="form-group required">
+        <label>Name</label>
+        <div class="control-group">
+          <input type="text" class="form-control" name="name" formControlName="name">
+          <div *ngIf="fcPersonal.name?.errors?.required && fcPersonal.name?.touched" class="invalid-tooltip">
+            Name is required
+          </div>    
+        </div>
+      </div>
+      <div class="form-group required">
+        <label>Surname</label>
+        <div class="control-group">
+          <input type="text" class="form-control" name="surname" formControlName="surname">
+          <div *ngIf="fcPersonal.surname?.errors?.required && fcPersonal.surname?.touched" class="invalid-tooltip">
+            Surname is required
+          </div>    
+        </div>
+      </div>
+      <div class="form-group required">
+        <label>Address</label>
+        <div class="control-group">
+          <input type="text" class="form-control" name="address" formControlName="address">
+          <div *ngIf="fcPersonal.address?.errors?.required && fcPersonal.address?.touched" class="invalid-tooltip">
+            Address is required
+          </div>    
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <div class="control-group">
+          <input type="text" class="form-control" name="phoneNumber" formControlName="phoneNumber">
+          <div *ngIf="fcPersonal.phoneNumber?.errors?.pattern && fcPersonal.phoneNumber?.touched" class="invalid-tooltip">
+            Phone number should have only numbers
+          </div>    
+        </div>
+      </div>
+      <div class="button-group">
+        <button type="button" class="btn btn-secondary-custom" aria-label="Continue" (click)="onContinuePersonalClicked()"
+          [disabled]="!formPersonal.valid">
+          Continue
+        </button>
+      </div>
+    </form>
+
+    <div class="step-tab-background">
+      <i class="bi-person"></i>
+    </div>
+  </div>
+  <div class="step-tab"  *ngIf="currentStep == 2">
+
+    <form [formGroup]="formEducation">      
+      <div class="form-group">
+        <label>Education</label>
+        <div class="control-group">
+          <select class="form-select" formControlName="education">
+            <option *ngFor="let item of educationTypes" [value]="item.name">{{
+              item.longTitle
+              }}</option>
+          </select>   
+        </div>
+      </div>
+
+      <ng-container *ngIf="selectedEducation">
+        <div class="form-group">
+          <label>Name</label>
+          <div class="control-group">
+            {{selectedEducation?.name}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Long Title</label>
+          <div class="control-group">
+            {{selectedEducation?.longTitle}}
+          </div>
+        </div>
+      </ng-container>
+
+
+      <div class="button-group">
+        <button type="button" class="btn btn-primary-custom" aria-label="Back" (click)="onBackClicked()">
+          Back
+        </button>
+        <button type="button" class="btn btn-secondary-custom" aria-label="Continue" (click)="onContinueEducationClicked()"
+          [disabled]="!formEducation.valid">
+          Continue
+        </button>
+      </div>
+    </form>
+
+    <div class="step-tab-background">
+      <i class="bi-building"></i>
+    </div>
+  </div>
+  <div class="step-tab"  *ngIf="currentStep == 3">
+    <form>
+
+      <div class="info-group">
+        <label>Personal Information</label>
+      </div>
+
+      <div class="form-group">
+        <label>Name</label>
+        <div class="control-group">
+          {{newUser?.name}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Surname</label>
+        <div class="control-group">
+          {{newUser?.surname}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <div class="control-group">
+          {{newUser?.address}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <div class="control-group">
+          {{newUser?.phoneNumber}}
+        </div>
+      </div>
+
+      <div class="info-group">
+        <label>Choice of Education</label>
+      </div>
+      <div class="form-group">
+        <label>Name</label>
+        <div class="control-group">
+          {{newUser?.educationType?.name}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Long Title</label>
+        <div class="control-group">
+          {{newUser?.educationType?.longTitle}}
+        </div>
+      </div>     
+      <div class="button-group">
+        <button type="button" class="btn btn-primary-custom" aria-label="Back" (click)="onBackClicked()">
+          Back
+        </button>
+      </div>
+    </form>
+    <div class="step-tab-background">
+      <i class="bi-hand-thumbs-up"></i>
+    </div>
+  </div> 
+</div>

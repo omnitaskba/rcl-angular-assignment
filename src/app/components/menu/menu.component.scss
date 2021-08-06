@@ -1,0 +1,113 @@
+@import '/src/styles/colors.scss';
+
+:host {
+  display: block;
+  width: 300px;
+  min-width: 300px;
+  background: rgb(131, 94, 182);
+  background: linear-gradient(0deg, rgba(131, 94, 182, 1) 0%, rgba(138, 113, 172, 1) 100%); 
+  border-top: 1px solid #7350a7;
+  border-right: 1px solid #7350a7;
+  transition: .2s all;
+  overflow-x: hidden;
+  z-index: 10;
+  
+  &.hidden {
+    width: 0;
+    min-width: 0;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+  }
+}
+
+ul {
+  &.menu {
+    margin: 2rem auto;
+    padding: 0;
+    width: 300px;
+
+    .user-info {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+
+      .avatar {
+        width: 125px;
+        height: 125px;
+        background: #fff;
+        border: 1px solid rgb(170, 170, 170);
+        border-radius: 63px;
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        cursor: pointer;
+
+        img {
+          height: 110%;
+          width: 110%;
+          margin-left: -5%;
+        }
+      }
+
+      button {
+        position: absolute;
+        top: 120px;
+        right: 75px;
+        color: $font-color-light;
+
+        i {
+          font-size: 1rem;
+        }
+      }
+
+      span {
+        font-weight: 700;
+        color: $font-color-light;
+
+        &.muted {
+          font-weight: 400;
+          opacity: .8;
+        }
+      }
+    }
+
+    .menu-item {
+      list-style: none;
+      color: $font-color-light;
+      position: relative;
+      padding: 10px 20px;
+      border-left: 2px transparent solid;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &.active {
+        background: rgba($color: #ffffff, $alpha: 0.1);
+        border-left: 2px $primary-color solid;
+      }
+
+      i {
+        margin: 0 20px;
+        font-size: 1.5rem;
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+
+@media(max-width: 575px) {
+  :host {
+    position: fixed;
+    height: 100%;
+    top: 50px;
+    left: 0;
+  }
+}

@@ -1,0 +1,46 @@
+<ul class="menu">
+    <li class="user-info" (click)="onUserInfoClicked()">
+        <div class="avatar" >
+            <img src="assets/imgs/person.svg">
+            <button type="button" class="btn-icon btn-search" aria-label="Profile">
+                <i class="bi-chevron-down"></i>
+            </button>
+        </div>
+        <span>John Doe</span>
+        <span class="muted">User Manager</span>
+    </li>
+
+    <li class="menu-item" [routerLink]="['/']" routerLinkActive="active" >
+        <i class="bi-person-plus-fill">
+
+        </i>
+        <span>
+            Create User
+        </span>
+    </li>
+    <li class="menu-item" (click)="onReportsClicked()">
+        <i class="bi-file-ruled-fill">
+
+        </i>
+        <span>
+            Reports
+        </span>
+    </li>
+    <li class="menu-item" (click)="onNotificationsClicked()">
+        <i class="bi-bell-fill">
+
+        </i>
+        <span>
+            Notifications
+        </span>
+    </li>
+    <li class="menu-item" (click)="onArchivedClicked()">
+        <i class="bi-trash2-fill">
+
+        </i>
+        <span>
+            Archived
+        </span>
+    </li>
+    
+</ul>

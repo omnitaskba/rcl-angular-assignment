@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="card">
+    <app-header (toggleMenu)="onToggleMenu()"></app-header>
+    
+    <div class="menu-wrapper">
+      <app-menu [class.hidden]="menuHidden"></app-menu>
+      <app-wizard></app-wizard>
+      <!-- <router-outlet></router-outlet> once we have multiple pages switch to routing -->
+    </div>
+  </div>
+</div>
