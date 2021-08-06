@@ -12,7 +12,7 @@
 
 ```sh
 npm install -g @angular/cli@latest
-nmp install
+npm install
 ```
 
 ## Usage
@@ -29,4 +29,4 @@ npm run test
 
 ## Author
 
-👤 **Omnitas - Djani Mehick**
+👤 **Omnitask doo - Djani Mehic**
