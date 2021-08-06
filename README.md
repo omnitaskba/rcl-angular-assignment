@@ -20,7 +20,7 @@ nmp install
 ```sh
 ng serve
 ```
-
+Then navigate to: <a href="http://localhost:4200/">http://localhost:4200/</a>
 ## Run tests
 
 ```sh
