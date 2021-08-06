@@ -29,4 +29,4 @@ npm run test
 
 ## Author
 
-👤 **Omnitas - Djani Mehick**
+👤 **Omnitask doo - Djani Mehic**
